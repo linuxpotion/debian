@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+pasta="$@"
+shell_d="/bin/bash"
+
+_MONTAGEM() {
+      local mount="$pasta"
+      mount -t proc none  $mount/proc
+      mount --bind /sys   $mount/sys
+      mount --bind /dev   $mount/dev
+      cp /etc/resolv.conf $mount/etc/resolv.conf
+      chroot $mount $shell_d
+}
+
+[[ -d "$pasta" ]] && _MONTAGEM || printf "\n------Defina um ponto de montagem e tente novamente.\n\n"; exit 1

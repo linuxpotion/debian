@@ -1,9 +1,6 @@
 apt install debootstrap coreutils util-linux e2fsprogs
 debootstrap --arch amd64 testing /mnt http://ftp.br.debian.org/debian/
-mount -t proc none /mnt/proc
-sudo mount --bind /sys /mnt/sys
-sudo mount --bind /dev /mnt/dev
-sudo cp /etc/resolv.conf /mnt/etc/resolv.conf
+debian-chroot /mnt
 apt install --no-install-recommends --no-install-suggests linux-base locales sudo ntp nano
 
 # Configurar arquivo interfaces.

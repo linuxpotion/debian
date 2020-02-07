@@ -1,7 +1,0 @@
-# Repositório do Pantheon
-nano /etc/apt/sources.list.d/pantheon-debian.list
-deb http://dl.bintray.com/mithrandirn/pantheon-debian/ testing main
-
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CBF6E0B8483170E9
-apt update
-apt install pantheon desktop-base

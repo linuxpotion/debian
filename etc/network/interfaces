@@ -1,0 +1,3 @@
+#Interface Internet
+auto wlp2s0
+#iface wlp2s0 inet dhcp

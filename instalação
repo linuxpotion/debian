@@ -1,22 +1,30 @@
-apt install debootstrap coreutils util-linux e2fsprogs
-debootstrap --arch amd64 testing /mnt http://ftp.br.debian.org/debian/
-debian-chroot /mnt
-apt install --no-install-recommends --no-install-suggests linux-base locales sudo ntp nano
-
-# Configurar arquivo interfaces.
-nano /etc/network/interfaces
-auto lo
-iface lo inet loopback
+sudo apt install debootstrap coreutils util-linux e2fsprogs
+# Acessar a internet, formatar e montar as partições.
+sudo debootstrap --arch amd64 testing /mnt http://ftp.br.debian.org/debian/
+sudo mount -t proc none /mnt/proc
+sudo mount --bind /sys /mnt/sys
+sudo mount --bind /dev /mnt/dev
+sudo cp -L /etc/resolv.conf /mnt/etc
+sudo cp -r debian /mnt
+sudo ./genfstab -U /mnt > /mnt/etc/fstab
+sudo chroot /mnt
+cp debian/etc/network/interfaces /etc/network/interfaces
+cp debian/etc/apt/* /etc/apt/
+apt update
+apt upgrade
+apt install grub-efi-amd64 linux-base linux-image-amd64
+apt install locales sudo ntp nano console-data
+apt install rfkill network-manager wpasupplicant
+apt install firmware-linux-nonfree firmware-atheros firmware-realtek
 
 # Configurar host.
 nano /etc/hosts
 127.0.1.1      debian
 
 dpkg-reconfigure tzdata
+dpkg-reconfigure console-data
 dpkg-reconfigure locales
 dpkg-reconfigure ntp
-
-apt install --no-install-recommends --no-install-suggests grub rfkill networkmanager
 
 
 

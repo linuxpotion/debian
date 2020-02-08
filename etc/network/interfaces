@@ -1,3 +1,7 @@
-#Interface Internet
+# Loopback
+auto lo
+iface lo inet loopback
+
+# Wi-fi
 auto wlp2s0
-#iface wlp2s0 inet dhcp
+iface wlp2s0 inet dhcp

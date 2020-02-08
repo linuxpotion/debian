@@ -14,7 +14,7 @@ apt update
 apt full-upgrade
 apt install grub-efi-amd64 linux-base linux-image-amd64
 apt install locales sudo ntp nano console-data
-apt install rfkill network-manager wpasupplicant
+apt install rfkill network-manager wpasupplicant isc-dhcp-client
 apt install firmware-linux-nonfree firmware-atheros firmware-realtek
 
 # Configurar host.

@@ -11,7 +11,7 @@ sudo chroot /mnt
 cp debian/etc/network/interfaces /etc/network/interfaces
 cp debian/etc/apt/* /etc/apt/
 apt update
-apt upgrade
+apt full-upgrade
 apt install grub-efi-amd64 linux-base linux-image-amd64
 apt install locales sudo ntp nano console-data
 apt install rfkill network-manager wpasupplicant

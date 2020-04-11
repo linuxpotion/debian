@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+#libva-intel-driver
+
+apt install xserver-xorg-video-intel xserver-xorg-input-synaptics xserver-xorg libvulkan1

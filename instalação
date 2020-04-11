@@ -1,6 +1,6 @@
 sudo apt install debootstrap coreutils util-linux e2fsprogs
 # Acessar a internet, formatar e montar as partições.
-sudo debootstrap --arch amd64 testing /mnt http://ftp.br.debian.org/debian/
+sudo debootstrap  --include linux-image-amd64,grub-efi-amd64,linux-base,rfkill,locales --arch amd64 unstable /mnt http://ftp.br.debian.org/debian/
 sudo mount -t proc none /mnt/proc
 sudo mount --bind /sys /mnt/sys
 sudo mount --bind /dev /mnt/dev
@@ -12,8 +12,7 @@ cp debian/etc/network/interfaces /etc/network/interfaces
 cp debian/etc/apt/* /etc/apt/
 apt update
 apt full-upgrade
-apt install grub-efi-amd64 linux-base linux-image-amd64
-apt install locales sudo ntp nano console-data
+apt install sudo ntp tlp nano console-data
 apt install rfkill network-manager wpasupplicant isc-dhcp-client
 apt install firmware-linux-nonfree firmware-atheros firmware-realtek
 

@@ -1,6 +1,7 @@
+##Debian Testing
+deb http://ftp.br.debian.org/debian/ testing main contrib non-free
+deb http://ftp.br.debian.org/debian/ testing-updates main contrib non-free
+
 ##Debian Unstable
 deb http://ftp.br.debian.org/debian/ unstable main contrib non-free
 
-##Debian Testing
-#deb http://ftp.br.debian.org/debian/ testing main contrib non-free
-#deb http://ftp.br.debian.org/debian/ testing-updates main contrib non-free

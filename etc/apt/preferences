@@ -5,7 +5,3 @@ Pin-Priority:500
 Package: *
 Pin: release a=testing
 Pin-Priority: 50
-
-Package: *
-Pin: release a=experimental
-Pin-Priority: 50
